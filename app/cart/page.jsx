@@ -21,7 +21,7 @@ const Cart = () => {
   return(
     <>
     {currentUser ? (
-      <div className='cartPage'>
+      <div id='cartPage'>
         <div>
           <h1>カートの商品</h1>
         </div>

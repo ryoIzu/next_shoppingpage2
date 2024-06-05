@@ -1,10 +1,10 @@
-.cartPage {
+#cartPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 80px;
-  height: auto;
+  height: 100vh;
 }
 .cart {
   display: flex;
