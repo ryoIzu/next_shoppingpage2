@@ -38,4 +38,10 @@
 
 a {
   color: rgb(17, 0, 255);
+  margin: auto;
+}
+
+.others {
+  display: flex;
+  align-items: center;
 }

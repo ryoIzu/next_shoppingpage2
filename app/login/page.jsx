@@ -71,7 +71,7 @@ const Login = () => {
         ):(
           <>
             <div className='input'>
-              ユーザ名：
+              メールアドレス：
               <input
                 type='text'
                 name='username'
@@ -97,7 +97,10 @@ const Login = () => {
             </button>
           </>
         )}
-        <a href='../register/'>新規登録はこちら</a>
+        <div className='others'>
+          <a href='../register/'>新規登録</a>
+          <a href='../forget_password'>パスワードを忘れた！</a>
+        </div>
       </div>
 
     </div>

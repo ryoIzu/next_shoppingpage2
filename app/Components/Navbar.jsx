@@ -10,7 +10,7 @@ function Navbar() {
 
   return(
     <>
-      <div className="navbar">
+      <div id="navbar">
         <div className="links">
           <Link href="/">Shop</Link>
           <Link href="/cart">Cart</Link>
