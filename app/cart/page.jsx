@@ -56,9 +56,9 @@ const Cart = () => {
         
       </div>
     ):(
-      <>
+      <div className='cartPage'>
       <p>サインインしてください</p>
-      </>
+      </div>
     )}
     </>
   );
