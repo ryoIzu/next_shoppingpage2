@@ -1,0 +1,35 @@
+.continueBtn {
+  width: 200px;
+  height: 30px;
+  background-color: rgb(103, 103, 103);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.checkoutBtn {
+  width: 200px;
+  height: 30px;
+  background-color: rgb(103, 103, 103);
+  color: azure;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+#cart {
+  width:500px;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+}
+
+.linkBtn {
+  color: aliceblue;
+  margin-bottom: auto;
+  margin-top: auto;
+  text-decoration: none;
+}

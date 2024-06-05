@@ -1,0 +1,41 @@
+.wrapper {
+  display:flex;
+  align-items: center;
+  height: auto;
+}
+
+.body {
+  width: auto;
+  height: 100vh;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: fit-content;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input {
+  margin: 10px auto;
+  width: auto;
+}
+
+.username,
+.password {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 2.5px 5px;
+}
+
+.button {
+  font-weight: bold;
+  padding: 5px;
+}
+
+a {
+  color: rgb(17, 0, 255);
+}
