@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from './Components/Navbar'
+import Navigationbar from './Components/Navigationbar';
 import { ShopContextProvider } from './context/shop-context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {AuthProvider} from './context/authContext';
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <ShopContextProvider>
-            <Navbar />
+            <Navigationbar />
               {children}
           </ShopContextProvider>
         </AuthProvider>
