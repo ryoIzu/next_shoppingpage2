@@ -28,7 +28,7 @@ export const ShopContextProvider = (props) => {
     fetch("https://fakestoreapi.com/products")
     .then((res)=>res.json())
     .then((json) => {
-      console.log(json);
+      //console.log(json);
       setItems(json);
     });
   },[]);
@@ -48,7 +48,7 @@ export const ShopContextProvider = (props) => {
   const addToCart = (itemId) => {
     console.log("add  to cart");
     setCartItems((prev) => ({...prev, [itemId]:prev[itemId] +1}));
-    console.log("cartItems: " + cartItems[itemId] + cartItems[itemId+1]  );
+    //console.log("cartItems: " + cartItems[itemId] + cartItems[itemId+1]  );
     
   };
   const removeFromCart = (itemId) => {

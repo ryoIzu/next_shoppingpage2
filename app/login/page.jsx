@@ -74,9 +74,9 @@ const Login = () => {
               メールアドレス：
               <input
                 type='text'
-                name='username'
-                id='password'
-                className='password'
+                name='email'
+                id='email'
+                className='email'
                 onChange={handleEmail} 
               />
             </div>

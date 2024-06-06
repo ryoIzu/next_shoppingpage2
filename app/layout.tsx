@@ -24,7 +24,7 @@ export default function RootLayout({
         <AuthProvider>
           <ShopContextProvider>
             <Navigationbar />
-              {children}
+            {children}
           </ShopContextProvider>
         </AuthProvider>
       </body>

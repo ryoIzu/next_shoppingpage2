@@ -10,6 +10,8 @@ import { BsCart4 } from "react-icons/bs";
 
 import { getAuth, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
 
 function Navigationbar() {
   const  {currentUser} = useAuth();
@@ -35,18 +37,22 @@ function Navigationbar() {
         <Container>
           <Navbar.Brand href="#home">M & D</Navbar.Brand>
           <Nav className="me-auto" id='me-auto'>
-            <Nav.Link href="./">home</Nav.Link>
-            <Nav.Link href="./">about</Nav.Link>
-            <Nav.Link href="./">goods</Nav.Link>
+            
+            <Nav.Link><Link href="./">home</Link></Nav.Link>
+            <Nav.Link><Link href="./">about</Link></Nav.Link>
+            <Nav.Link><Link href="./">goods</Link></Nav.Link>
             <div className='ms-auto'>
             {currentUser ? (
               <>
                 <Nav.Link >{currentUser.email}</Nav.Link>
                 <div className='message'>
-                  <Nav.Link className='signOut' href='./cart'>
-                    <BsCart4 size={25} color={'#ccc'}/>
-                    <span className='remark'>cart</span>
-                  </Nav.Link>
+                    <Nav.Link className='signOut'>
+                      <Link href='../cart'>
+                      <BsCart4 size={25} color={'#ccc'} />
+                      <span className='remark'>cart</span>
+                      </Link>
+                    </Nav.Link>
+                  
                 </div>
                 <div className='message'>
                   <Nav.Link className='signOut' onClick={() =>{handleSignOut();}}>
@@ -62,8 +68,8 @@ function Navigationbar() {
                     <LiaSignInAltSolid size={30} color='#ccc'/>
                     <span className='remark'>sign in</span>
                   </Nav.Link>  
-                </div>
-                <Nav.Link></Nav.Link>
+              </div>
+                
               </>
             )}
             </div>
