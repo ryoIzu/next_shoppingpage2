@@ -1,47 +1,12 @@
-.wrapper {
-  display:flex;
-  align-items: center;
-  height: auto;
+.formMain {
+  margin-top: 80px;
 }
 
-.body {
-  width: auto;
-  height: 100vh;
-  background-color: antiquewhite;
-  display: flex;
-  align-items: center;
+.sign-out {
+  padding-left: 50px;
 }
 
-.content {
-  width: fit-content;
-  height: auto;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.input {
-  margin: 10px auto;
-  width: auto;
-}
-
-.username,
-.password {
-  display: inline-block;
-  margin-left: 5px;
-  padding: 2.5px 5px;
-}
-
-.button {
-  font-weight: bold;
-  padding: 5px;
-}
-
-a {
-  color: rgb(17, 0, 255);
-  margin: auto;
-}
-
-.others {
-  display: flex;
-  align-items: center;
+.sign-in {
+  width: 90vh;
+  padding: 5px 50px;
 }

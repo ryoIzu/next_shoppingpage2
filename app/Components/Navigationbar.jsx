@@ -38,9 +38,7 @@ function Navigationbar() {
           <Navbar.Brand href="#home">M & D</Navbar.Brand>
           <Nav className="me-auto" id='me-auto'>
             
-            <Nav.Link><Link href="./">home</Link></Nav.Link>
-            <Nav.Link><Link href="./">about</Link></Nav.Link>
-            <Nav.Link><Link href="./">goods</Link></Nav.Link>
+            <Nav.Link className='left'><Link href="./">goods</Link></Nav.Link>
             <div className='ms-auto'>
             {currentUser ? (
               <>

@@ -14,7 +14,7 @@ function Shop() {
 
   return(
     <>
-    <Container style={{marginTop: '80px'}}>
+    <Container style={{marginTop: '80px' }}>
       <Row className="itemsDev">
       <h2>MPLUSPLUS DANCERS</h2>
       </Row>

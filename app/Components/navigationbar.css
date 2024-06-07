@@ -11,6 +11,12 @@
   margin: 0 0 0 auto;
 }
 
+.left {
+  justify-content: start;
+  align-content: start;
+  margin-right: 0px;
+}
+
 .right {
   justify-content: end;
   align-content: end;
@@ -18,7 +24,7 @@
 
 .ms-auto {
   display: flex;
-  align-items: center;
+  align-items:first baseline;
 }
 
 .message {
