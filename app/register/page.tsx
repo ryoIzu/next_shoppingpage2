@@ -14,10 +14,10 @@ import Alert from 'react-bootstrap/Alert';
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
   const [errPassword,setErrPassword] = useState('');
   const [errEmail, setErrEmail] = useState('');
 
+  const router = useRouter();
   //登録ボタンのハンドラー
   const doRegister = () => {
     const auth = getAuth();
@@ -46,12 +46,13 @@ export default function Register() {
     })
   }
 
+  //なぜかuseRouterが入らないい。
   useEffect(()=> {
     setErrEmail('');
-  },[email, router.pathname]);
+  },[email]);
   useEffect(()=>{
     setErrPassword('');
-  },[password, router.pathname]);
+  },[password]);
 
   return(
     <>
