@@ -2,63 +2,92 @@
 //import styles from '../page.module.css';
 import './register.css';
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-import {Col, Container, Form, FormGroup, Input, Label, Row, Button} from "reactstrap";
-import {useState} from 'react';
+import {Col, Container, FormGroup, Input, Label, Row} from "reactstrap";
+import {useState, useEffect} from 'react';
+import { useRouter } from 'next/navigation';
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
+
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
+  const [errPassword,setErrPassword] = useState('');
+  const [errEmail, setErrEmail] = useState('');
 
   //登録ボタンのハンドラー
   const doRegister = () => {
     const auth = getAuth();
+    if(password.length < 10){
+      setErrPassword('Please set password to 10 characters or more.');
+      return;
+    }
+
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       //ユーザ登録すると自動的にログイン、userCredential.userでユーザ情報取得
       const user = userCredential.user;
-      alert('登録完了');
+      alert('Happy created.');
       console.log(user);
+      router.push('./');
     })
     .catch((error) => {
       console.log(error);
       if(error.code === 'auth/email-already-in-use') {
-        alert('そのメールアドレスはすでに利用されています、死ね');
+        setErrEmail('This email address has already used.');
+      } else if(error.code === 'auth/invalid-email') {
+        setErrEmail('The email address format is not correct.');
       }
       
     })
   }
 
+  useEffect(()=> {
+    setErrEmail('');
+  },[email, router.pathname]);
+  useEffect(()=>{
+    setErrPassword('');
+  },[password, router.pathname]);
+
   return(
     <>
     <div className='div'>
-      <h1>新規登録</h1>
+      <h2>Register new account</h2>
       <div>
         <Form>
-          <FormGroup>
-            <Label>メールアドレス：</Label>
-            <Input
+          <Form.Group className='mb-3' controlId='forBasicEmail'>
+            <Form.Label>Email address: </Form.Label>
+            <Form.Control
               type='email'
-              name='email'
-              style={{height:50, fontSize: "1.2rem"}}
+              placeholder="cfcl@cfcl.com"
               onChange={(e) => setEmail(e.target.value)}
             />
-          </FormGroup>
+            <Form.Text>
+              {errEmail && <Alert variant='warning'>{errEmail}</Alert>}
+            </Form.Text>
+          </Form.Group>
+
           <FormGroup>
-            <Label>パスワード：</Label>
-            <Input
+            <Form.Label>Password: </Form.Label>
+            <Form.Control
               type='password'
-              name='password'
-              style={{height:50, fontSize: "1.2rem"}}
+              placeholder='password'
               onChange={(e) => setPassword(e.target.value)}
             />
+            <Form.Text>
+              {errPassword && <Alert variant='warning'>{errPassword}</Alert>}
+            </Form.Text>
           </FormGroup>
-          <Button style={{width:220}} color='primary' onClick={
-            ()=>{
-              doRegister();
-            }
+          <Button
+            variant='outline-primary'
+            type='button'
+            onClick={()=>{doRegister();}
           }>
-            登録
+            Register
           </Button>
         </Form>
       </div>

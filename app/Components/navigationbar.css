@@ -61,3 +61,17 @@
   width: 100px;
   text-align: center;
 }
+
+.navContent {
+  text-decoration: none;
+  color: #5c5c5c;
+  transition: all 0.2s;
+}
+
+.navContent:hover {
+  color: #00ffae;
+}
+
+.icon {
+  transition: all 0.2s;
+}
