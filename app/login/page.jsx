@@ -77,7 +77,7 @@ const Login = () => {
         <>
         <div className='sign-out'>
         <div suppressHydrationWarning={true}>
-            <div style={{ paddingBottom: "1rem" }}>{ currentUser.email } でログインしています。</div>
+            <div style={{ paddingBottom: "1rem" }}>Signing in as "{ currentUser.email }"</div>
           </div>
           <Button variant='outline-secondary' type='button' onClick={()=>{doLogout();}}>
             Sign out
@@ -132,57 +132,6 @@ const Login = () => {
       )}
       
     </div>
-    
-    {/* 
-    <div className='body'>
-      <div className='content'>
-        {currentUser ?(
-          <>
-          <div suppressHydrationWarning={true}>
-            <div style={{ paddingBottom: "1rem" }}>{ currentUser.email } でログインしています。</div>
-          </div>
-          <button className='button' onClick={() =>{
-            doLogout();
-          }}>
-            Sign out
-          </button>
-          </>
-        ):(
-          <>
-            <div className='input'>
-              メールアドレス：
-              <input
-                type='text'
-                name='email'
-                id='email'
-                className='email'
-                onChange={handleEmail} 
-              />
-            </div>
-            <div className='input'>
-              パスワード：
-              <input
-                type='password'
-                name='password'
-                id='password'
-                className='password'
-                onChange={handlePassword} 
-              />
-            </div>
-            <button className='button' onClick={() => {
-              doLogin();
-            }}>
-              Sign in
-            </button>
-          </>
-        )}
-        <div className='others'>
-          <a href='../register/'>新規登録</a>
-          <a href='../forget_password'>パスワードを忘れた！</a>
-        </div>
-      </div>
-    </div>
-    */}
     </>
   );
 };

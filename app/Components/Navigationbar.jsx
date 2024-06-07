@@ -23,7 +23,7 @@ function Navigationbar() {
     signOut(auth)
     .then(() => {
       // ログアウトされたことをわかりやすくするためのアラート
-      alert( 'ログアウト完了！' );
+      //alert( 'ログアウト完了！' );
       router.push('/login');
     })
     .catch((error) => {

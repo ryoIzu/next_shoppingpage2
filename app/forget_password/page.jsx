@@ -2,14 +2,20 @@
 import styles from '../page.module.css'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { getFunctions, httpsCallable } from 'firebase/functions';
-import { Col, Container, Form, FormGroup, Input, Label, Row, Button } from "reactstrap";
-import { useState } from 'react';
+import { Col, Container, FormGroup, Input, Label, Row} from "reactstrap";
+import { useEffect, useState } from 'react';
 import './forget_password.css';
+import {useRouter} from 'next/navigation';
 
+//react boot strap
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert'
 
 export default function Login() {
   const [email, setEmail] = useState('');
-  const functions = getFunctions();
+  const [err, setErr] = useState('');
+  const router = useRouter();
 
   const doResetEmail = async () => {
     const auth = getAuth();
@@ -21,51 +27,54 @@ export default function Login() {
     sendPasswordResetEmail(auth, email, actionCodeSettings)
           .then(() => {
             // パスワード再設定のメールが送信されたことをわかりやすくするためのアラート
-            alert( '上記メールアドレスに再設定用リンクを送りました' );
+            alert( 'The email for resetting password has been sent.' );
             console.log(email);
           })
           .catch((error) => {
             console.log(error);
             switch(error.code) {
               case 'auth/invalid-email':
-                alert('メールアドレスの形式が正しくありません。');
+                setErr('The email address format is not correct.');
               break;
               case 'auth/user-not-found':
-                alert('そのメールアドレスは登録されていません。');
+                setErr('This email is not registered.');
               break;
               default :
-                alert('エラーが発生しました。');
+                alert('Error has been ocurred.');
               break;
             }
       });
   };
 
+  useEffect(() => {
+    setErr('');
+  },[email, router.pathname]);
+
   return (
     <div id='main'>
-      <h1>パスワード再設定</h1>
+      <h1>Reset password</h1>
       <div>
         <Form>
-            <FormGroup>
-              <Label>
-                メールアドレス：
-              </Label>
-              <Input
+            <Form.Group className='mb-3' controlId='formBasicEmail'>
+              <Form.Label>
+                Email address: 
+              </Form.Label>
+              <Form.Control
                 type="email"
-                name="email"
-                style={{ height: 50, fontSize: "1.2rem" }}
+                placeholder = "cfcl@cfcl.com"
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </FormGroup>
+            </Form.Group>
             <Button
-                style={{ width: 220 }}
-                color="primary"
+                variant="outline-primary"
                 onClick={()=>{
                   doResetEmail();
                 }}
               >
-              送信
+              send Email
             </Button>
         </Form>
+        {err && <Alert variant='warning'>{err}</Alert>}
       </div>
     </div>
   )
