@@ -8,10 +8,10 @@ function LinkButton() {
     <>
     <div id="cart">
       <div className="continueBtn">
-        <Link className="linkBtn" href="../"> 買い物を続ける</Link>
+        <Link className="linkBtn" href="../"> Continue shopping</Link>
       </div>
       <div className="checkoutBtn">
-        <Link className="linkBtn"href="../">チェックアウト(未実装)</Link>
+        <Link className="linkBtn"href="../">Check out</Link>
       </div>
     </div>
     </>

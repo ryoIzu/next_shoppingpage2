@@ -3,27 +3,41 @@
 import {ShopContext} from "../context/shop-context";
 import React, {useContext} from 'react';
 
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 function CartItem(props) {
   const {id, title, image, price} = props.data;
   const {cartItems, addToCart, removeFromCart, updateCartItemCount} =useContext(ShopContext);
 
   return(
-    <div className="cartItem">
-      <img src={image} />
-      <div className="description">
-        <p className="cartItemTitle">{title}</p>
-        <p>${price}</p>
-        <div className="countHandler">
-          <button onClick={() => removeFromCart(id)}>-</button>
-          <input
-            value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)} 
-          />
-          <button onClick={() => addToCart(id)}> + </button>
-        </div>
-        <p>小計：${price * cartItems[id]}</p>
-      </div>
-    </div>
+    <>
+    <Card border="secondary" style={{ width: '20rem' }}>
+        <Card.Header>{title}</Card.Header>
+        <Card.Body>
+          <Card.Img variant="left" src={image} width={'20%'}/>
+          <Card.Text>
+            Amount: {cartItems[id]}<br />
+            Price: ${price * cartItems[id]}
+          </Card.Text>
+          <Button 
+          key= 'id'
+          variant="outline-secondary"
+          type="button"
+          onClick={() => removeFromCart(id)}
+          >Delete
+          </Button>
+          <Button 
+            key= 'id'
+            variant="outline-secondary"
+            type="button"
+            onClick={() => addToCart(id)}
+          >Add
+          </Button>
+        </Card.Body>
+      </Card>
+    </>
+      
   );
 }
 
