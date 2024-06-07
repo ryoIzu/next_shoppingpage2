@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .checkoutBtn {
@@ -17,14 +17,14 @@
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 #cart {
   width:500px;
   height: auto;
   display: flex;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .linkBtn {
